@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.SysConfigMapper">
+
+    <select id="select" resultType="com.entity.SysConfig" parameterType="java.lang.String">
+        select
+        id 'id',
+        app_key 'appKey',
+        app_value 'appValue',
+        description 'description',
+        create_time 'createTime',
+        update_time 'updateTime',
+        deleted 'deleted'
+        from sys_config
+        where 1=1 and
+        <if test="appKey != null and appKey != ''">
+            app_key=#{appKey}
+        </if>
+    </select>
+
+</mapper>
